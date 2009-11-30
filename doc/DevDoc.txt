@@ -12,7 +12,7 @@ RFT: refactoring / code cleanup
 
 
 
-ToDo: As of 27.11.2009
+ToDo: As of 30.11.2009
 ====
 
 
@@ -21,6 +21,13 @@ ToDo: As of 27.11.2009
 ********************************************************************************
 CHANGELOG
 ********************************************************************************
+
+v1.0.1dev:
+---------
++ (rk) CHG: "initialized" development version 1.0.1dev (v1.0.0 has been tagged in SVN and uploaded to TER before)
+
+
+
 
 v1.0.0:
 ------
