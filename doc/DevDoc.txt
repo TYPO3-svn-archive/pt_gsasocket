@@ -1,0 +1,41 @@
+********************************************************************************
+DevDoc.txt: Development notes for EXT pt_gsasocket
+Author: Rainer Kuhn
+
+Legend:
+FIX: fixed a bug
+CHG: changed items/features
+ADD: added feature
+RMV: removed item
+RFT: refactoring / code cleanup
+********************************************************************************
+
+
+
+ToDo: As of 27.11.2009
+====
+
+
+
+
+********************************************************************************
+CHANGELOG
+********************************************************************************
+
+v1.0.0:
+------
++ (rk) CHG: adapted extension dependencies/suggestions and manual, raised version number
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
