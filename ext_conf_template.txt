@@ -1,0 +1,61 @@
+/* 
+$Id: ext_conf_template.txt,v 1.12 2008/11/18 16:43:37 ry37 Exp $
+
+possible subcategories: 
+----------------------
+basic        Extension configuration in Extension Manager
+
+possible data types (type=):
+---------------------------
+int [low-high]              integer, opt. in range "low" to "high"
+int+                        positive integer
+offset    [L1,L2,...L6]     comma-separated integers. Default is "x,y", but as comma separated parameters in brackets you can specify up to 6 labels being comma separated! If you wish to omit one of the last 4 fields, just don't enter a label for that element.
+color                       HTML color
+wrap                        HTML-code that is wrapped around some content.
+options [item1,item2,...]   Selectbox with values/labels item1, item2 etc. Commaseparated. Split by "=" also and in that case, first part is label, second is value
+boolean [truevalue]         Boolean, opt. you can define the value of "true", def.=1
+comment                     Boolean, checked= "", not-checked = "#".
+file [ext-list/IMAGE_EXT]   Selectorbox with resources. Opt. list allowed extensions (no space in list!), eg. "[ttf]" or "[txt,html,htm]". You can also enter "[IMAGE_EXT]" in which case the default image-extensions are listed. (used for datatype "imgResouce")
+string (the default)        Just a string value
+*/
+
+
+
+# cat=basic; type=boolean; label=Use GSA tables in TYPO3 database: Check this box if you want to use the GSA database tables within the TYPO3 database instead of using an additional GSA database (you can do this by importing the SQL script tx_ptgsaminidb_tables.sql of the extension pt_gsaminidb, please refer to that extension's manual for details).
+useGsaTablesInTypo3Database = 0
+
+# cat=basic; type=string; label=Additional GSA DB -  host name: The name of the database host where the additional GSA database is located. This option is not required if you've decided not to use an additional GSA database by checking the above option "useGsaTablesInTypo3Database".
+dbGSAhost = localhost
+ 
+# cat=basic; type=string; label=Additional GSA DB - database name: The database name of the additional GSA database. Please refer to the extension manual for details on how to retrieve an appropriate database. This option is not required if you've decided not to use an additional GSA database by checking the above option "useGsaTablesInTypo3Database".
+dbGSAname = GSAMINIDB
+
+# cat=basic; type=string; label=Additional GSA DB - user name: The name of the user allowed to use the additional GSA database. This option is not required if you've decided not to use an additional GSA database by checking the above option "useGsaTablesInTypo3Database".
+dbGSAuser = GSMandantUser
+
+# cat=basic; type=string; label=Additional GSA DB - password: The password of the user allowed to use the additional GSA database. This option is not required if you've decided not to use an additional GSA database by checking the above option "useGsaTablesInTypo3Database".
+dbGSApwd = 
+
+# cat=basic; type=string; label=Additional GSA DB - initialization: Individual SQL initialization command for the additional GSA database (to send to database right after connecting), e.g. "SET NAMES <charset>". This option is ignored if you've decided not to use an additional GSA database by checking the above option "useGsaTablesInTypo3Database", the default $TYPO3_CONF_VARS['SYS']['setDBinit'] is used in this case.
+dbGSAsetDBinit = 
+
+# cat=basic; type=boolean; label=Charset conversion of GSA data: Check this box if you want the GSA database string data to be converted to another charset encoding used by the website. The used charset encoding of your GSA database should be configured at the following option "gsaCharset" (TYPO3's website charset is retrieved internally).
+enableGsaCharsetConv = 0
+
+# cat=basic; type=string; label=Charset encoding used by GSA-DB: Charset encoding used by the underlying GSA database. This setting has no effect if enableGsaCharsetConv is set to 0 (not checked).
+gsaCharset = ISO-8859-1
+
+# cat=basic; type=boolean; label=GSA database modification logging: Check this box if you want to enable the logging for all database modifying SQL queries (INSERT, UPDATE, DELETE) on the GSA database (SELECT will _not_ be logged!). IMPORTANT: If enabled, the config values logDirPath, logAdminEmail and logHostName (see below) have to be set, too.
+logEnabled = 0
+
+# cat=basic; type=string; label=Log output directory: [Notice: This entry is needed only if the config value logEnabled (see above) is checked.] Absolute path to the server directory for generated logs (Notice: don't forget the prefacing and closing slashes "/"!). If not set, no log is written.
+logDirPath =  
+
+# cat=basic; type=string; label=Log error email admin address: [Notice: This entry is needed only if the config value logEnabled (see above) is checked.] Email address for system messages on logging errors.
+logAdminEmail = 
+
+# cat=basic; type=string; label=Log error email host name: [Notice: This entry is needed only if the config value logEnabled (see above) is checked.] Name of the host where this extension is used. This name is used for identification of the originating host in system emails sent on logging errors.
+logHostName =
+
+# cat=basic; type=string; label="GS Auftrag" server dir (optional): This setting is required only if you want to run the GSA extensions with the "GS Auftrag" ERP system and need to retrieve data from the ERP files: In this case the directory path to the server directory where "GS Auftrag" stores its internal data for the currently used "Mandant"-user has to be set here (absolute server path, don't forget the prefacing and closing slashes "/").
+pathGSAserverDir = /gs/00001/
